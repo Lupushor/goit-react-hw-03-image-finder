@@ -57,8 +57,11 @@ export class App extends Component {
 
     return (
       <Layer>
+        <Searchbar onSubmit={this.onHandelSubmit} />
+        {images.length !== 0 && <ImageGallery images={images} />}
+
         <LoaderStyle>
-          {isLoading && (
+          {isLoading && images.length === 0 && (
             <FallingLines
               color="#4fa94d"
               width="100"
@@ -67,9 +70,6 @@ export class App extends Component {
             />
           )}
         </LoaderStyle>
-
-        <Searchbar onSubmit={this.onHandelSubmit} />
-        {images.length !== 0 && <ImageGallery images={images} />}
 
         {totalPage > 1 && !isLoading && images.length !== 0 && (
           <Button onClick={this.onLoadMore} isLoading={isLoading} />

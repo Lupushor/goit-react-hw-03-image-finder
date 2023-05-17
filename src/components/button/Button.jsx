@@ -1,7 +1,9 @@
+import { ButtonStyle } from './Button.styled';
+
 export const Button = ({ onClick, isLoading }) => {
   return (
-    <button onClick={onClick} disabled={isLoading}>
+    <ButtonStyle onClick={onClick} disabled={isLoading}>
       {isLoading ? 'Loading...' : 'Load More'}
-    </button>
+    </ButtonStyle>
   );
 };

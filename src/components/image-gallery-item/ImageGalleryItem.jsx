@@ -1,7 +1,10 @@
 import { ModalImg } from 'components/modal/Modal';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Image, ListItem } from './ImageGalleryItem.styled';
+import {
+  ImageGalleryItemImage,
+  ImageGalleryItemList,
+} from './ImageGalleryItem.styled';
 
 // export const ImageGalleryItem = ({ largeImageURL, tags, webformatURL }) => {
 //   return (
@@ -29,14 +32,18 @@ export class ImageGalleryItem extends Component {
     const { selectedImg } = this.state;
     const { largeImageURL, tags, webformatURL } = this.props;
     return (
-      <ListItem class="gallery-item">
-        <Image src={webformatURL} alt={tags} onClick={this.setSelectedImg} />
+      <ImageGalleryItemList class="gallery-item">
+        <ImageGalleryItemImage
+          src={webformatURL}
+          alt={tags}
+          onClick={this.setSelectedImg}
+        />
         <ModalImg
           isOpen={selectedImg !== null}
           onClose={this.closeModal}
           largeImageURL={largeImageURL}
         />
-      </ListItem>
+      </ImageGalleryItemList>
     );
   }
 }

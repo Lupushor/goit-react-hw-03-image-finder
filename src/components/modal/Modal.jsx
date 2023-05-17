@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import { ButtonModal, ImgModal } from './Modal.style';
 
 const customStyles = {
   content: {
@@ -22,8 +23,8 @@ export const ModalImg = ({ largeImageURL, tags, onClose, isOpen }) => {
       contentLabel="Example Modal"
     >
       <div>
-        <img src={largeImageURL} alt={tags} width="640" />
-        <button onClick={onClose}>Close</button>
+        <ImgModal src={largeImageURL} alt={tags} />
+        <ButtonModal onClick={onClose}>Close</ButtonModal>
       </div>
     </Modal>
   );

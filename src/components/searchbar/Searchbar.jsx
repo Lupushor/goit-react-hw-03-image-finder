@@ -1,5 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Header,
+  SearchForm,
+  SearchFormButton,
+  SearchFormButtonLabel,
+  SearchFormInput,
+} from './Searchbar.styled';
 
 export class Searchbar extends Component {
   state = {
@@ -25,13 +32,13 @@ export class Searchbar extends Component {
 
     return (
       //class="searchbar", class="form", class="button", class="button-label", class="input"
-      <header>
-        <form onSubmit={this.handelSubmit}>
-          <button type="submit">
-            <span>Search</span>
-          </button>
+      <Header>
+        <SearchForm onSubmit={this.handelSubmit}>
+          <SearchFormButton type="submit">
+            <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+          </SearchFormButton>
 
-          <input
+          <SearchFormInput
             value={query}
             onChange={this.handelChange}
             type="text"
@@ -39,8 +46,8 @@ export class Searchbar extends Component {
             autoFocus
             placeholder="Search images and photos"
           />
-        </form>
-      </header>
+        </SearchForm>
+      </Header>
     );
   }
 }
