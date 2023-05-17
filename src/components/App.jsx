@@ -4,6 +4,7 @@ import { Searchbar } from './searchbar/Searchbar';
 import { ImageGallery } from './image-gallery/ImageGallery';
 import { Button } from './button/Button';
 import { FallingLines } from 'react-loader-spinner';
+import { Layer, LoaderStyle } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -55,15 +56,17 @@ export class App extends Component {
     const totalPage = total / images.length;
 
     return (
-      <div>
-        {isLoading && (
-          <FallingLines
-            color="#4fa94d"
-            width="100"
-            visible={true}
-            ariaLabel="falling-lines-loading"
-          />
-        )}
+      <Layer>
+        <LoaderStyle>
+          {isLoading && (
+            <FallingLines
+              color="#4fa94d"
+              width="100"
+              visible={true}
+              ariaLabel="falling-lines-loading"
+            />
+          )}
+        </LoaderStyle>
 
         <Searchbar onSubmit={this.onHandelSubmit} />
         {images.length !== 0 && <ImageGallery images={images} />}
@@ -71,7 +74,7 @@ export class App extends Component {
         {totalPage > 1 && !isLoading && images.length !== 0 && (
           <Button onClick={this.onLoadMore} isLoading={isLoading} />
         )}
-      </div>
+      </Layer>
     );
   }
 }
