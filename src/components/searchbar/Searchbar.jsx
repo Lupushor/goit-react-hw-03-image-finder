@@ -31,7 +31,6 @@ export class Searchbar extends Component {
     const { query } = this.state;
 
     return (
-      //class="searchbar", class="form", class="button", class="button-label", class="input"
       <Header>
         <SearchForm onSubmit={this.handelSubmit}>
           <SearchFormButton type="submit">

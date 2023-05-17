@@ -6,15 +6,6 @@ import {
   ImageGalleryItemList,
 } from './ImageGalleryItem.styled';
 
-// export const ImageGalleryItem = ({ largeImageURL, tags, webformatURL }) => {
-//   return (
-//     <li class="gallery-item">
-//       <img src={webformatURL} alt={tags} />
-//       <Modal largeImageURL={largeImageURL} />
-//     </li>
-//   );
-// };
-
 export class ImageGalleryItem extends Component {
   state = {
     selectedImg: null,
@@ -42,6 +33,7 @@ export class ImageGalleryItem extends Component {
           isOpen={selectedImg !== null}
           onClose={this.closeModal}
           largeImageURL={largeImageURL}
+          tags={tags}
         />
       </ImageGalleryItemList>
     );

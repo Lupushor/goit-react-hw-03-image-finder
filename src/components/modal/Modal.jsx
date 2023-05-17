@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import { ButtonModal, ImgModal } from './Modal.style';
+import PropTypes from 'prop-types';
 
 const customStyles = {
   content: {
@@ -28,4 +29,11 @@ export const ModalImg = ({ largeImageURL, tags, onClose, isOpen }) => {
       </div>
     </Modal>
   );
+};
+
+ModalImg.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.func.isRequired,
 };
